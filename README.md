@@ -29,8 +29,8 @@ Run
 Data
 ======================
 The data for this case study are in `./data`. Although there are both training and testing data sets,
-the testing data set will only be utilized to evaluate your performance.  In other words, ou should use
-cross-validation on the training data set to identify potential models, then score those models on 
+the testing data set will only be utilized to evaluate your final model performance.  In other words, 
+you should use cross-validation on the training data set to identify potential models, then score those models on 
 the test data.
 
 In order to score your model, you will need to 
