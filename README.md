@@ -12,10 +12,12 @@ and equipment configurations.
 Evaluation
 ======================
 The evaluation of your model will be based on Root Mean Squared Log Error. Which
-is computed as root mean of the log of the prediction+1 minus the log of the
-target+1 squared. 
+is computed as follows: 
 
 ![](images/rmsle.png)
+
+where *p<sub>i</sub>* are the predicted values and *a<sub>i</sub>* are the target
+values.
 
 See the code in score_model.py for details.
 
