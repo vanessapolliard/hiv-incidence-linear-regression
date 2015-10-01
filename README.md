@@ -15,7 +15,7 @@ The evaluation of your model will be based on Root Mean Squared Log Error. Which
 is computed as root mean of the log of the prediction+1 minus the log of the
 target+1 squared. 
 
-![rmlse](images/rmlse.png)
+![rmlse](https://github.com/zipfian/regression-case-study/blob/master/images/rmlse.png)
 
 See the code in score_model.py for details.
 
