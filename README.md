@@ -37,7 +37,7 @@ In order to score your model, you will need to
 output your predictions in the format specified in `data/median_benchmark.csv`. Then
 you can submit your solution for evaluation using the command:
 
-    python score_model.py data/median_benchmark.csv
+    python score_model.py data/your_predictions.csv
 
 Note that this will announce your score on Slack to everybody else, so you should
 do this only when you feel you have a high-quality solution.
