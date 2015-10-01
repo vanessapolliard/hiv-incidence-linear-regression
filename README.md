@@ -28,8 +28,12 @@ Run
 
 Data
 ======================
-The data for this case study are in `./data`. There are training and testing data sets.
-You will create scores on the test data only to evaluate your performance. You will
+The data for this case study are in `./data`. Although there are both training and testing data sets,
+the testing data set will only be utilized to evaluate your performance.  In other words, ou should use
+cross-validation on the training data set to identify potential models, then score those models on 
+the test data.
+
+In order to score your model, you will need to 
 output your predictions in the format specified in `data/median_benchmark.csv`. Then
 you can submit your solution for evaluation using the command:
 
@@ -38,6 +42,5 @@ you can submit your solution for evaluation using the command:
 Note that this will announce your score on Slack to everybody else, so you should
 do this only when you feel you have a high-quality solution.
 
-To decide whether you have such a solution, you should do cross-validation using data
-only from the training data.
+
 
