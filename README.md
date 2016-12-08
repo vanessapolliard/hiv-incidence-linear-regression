@@ -39,8 +39,7 @@ you can submit your solution for evaluation using the command:
 
     python score_model.py data/your_predictions.csv
 
-Note that this will announce your score on Slack to everybody else, so you should
-do this only when you feel you have a high-quality solution.
+Note that this will announce your score on Slack to everybody else, but feel free to submit early to make sure you have a working model.
 
 Important Tips
 =========================
