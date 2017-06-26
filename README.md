@@ -30,7 +30,7 @@ This loss function is implemented in score_model.py.
 
 Setup
 ======================
-Run `pip install git+https://github.com/zipfian/performotron.git`.
+Run `pip install git+https://github.com/gschool/dsi-performotron.git`.
 
 Data
 ======================
