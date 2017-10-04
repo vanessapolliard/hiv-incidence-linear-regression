@@ -9,6 +9,43 @@ heavy equipment at auction based on it's usage, equipment type, and
 configuration.  The data is sourced from auction result postings and includes
 information on usage and equipment configurations.
 
+
+Version Control
+=====================
+Before you begin feature engineering and model building, you will need to establish
+a workflow for your team. For this you will git and github! Version control is your friend.
+The last thing you want at the end of the day is version proliferation with
+multiple, conflicting versions of your code floating around on Slack, email or elsewhere.
+Instead, you want one centralized repository of code that is version controlled
+and shared between every member of your team. Here are a few resources to help you get started.
+
+## Version control and collaboration with `github`
+* [don't get scared, get started!](http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1)
+* [github help](https://help.github.com/articles/set-up-git/)
+* [git intro for readers](http://skli.se/2012/09/22/introduction-to-git/)
+- [git intro for visual and auditory learners](https://www.youtube.com/watch?v=LXoWxrTdXkM)
+- [git workflow for beginners](http://skli.se/2012/10/07/git-workflow-beginner/)
+- [forking](https://help.github.com/articles/fork-a-repo)
+- [sharing and collaborating](https://www.youtube.com/watch?v=ifAEho6BmH0&list=PLg7s6cbtAD17uAwaZwiykDci_q3te3CTY)
+
+## Recommended workflow
+* Your team captain should fork the [case study repository](https://github.com/gSchool/dsi-regression-case-study). This will be your team's "upstream repo".
+* All other team members should fork the upstream repo.
+* Everyone clones their own forked repos to their local machines.
+* On your local machine, create and checkout a branch to work on. This will be your "feature" branch. No one works on the master branch, even the upstream owner.
+* Do your work.
+* Everytime you complete an atomic piece of work `git add -p` `git commit -m` `git push origin <your feature branch>`
+  * `git add -p` to interactively add code changes in chunks. This is crucial to making sure you commit only what you intend.
+  * `git commit -m <somthing useful>`. Your commit messages serve as documenation and communicaiton within your team.
+  Example of good commit message: "add private method to feature engineering class to one-hot-encode categorical variables"
+  Example of useless commit message "stuff"
+  * `git push origin feature_1` and `git pull -r origin master` Be explicit about which remote branch you want when you push/pull.
+* Once a chunk of work is complete, or is at least usable to the rest of the team, issue a pull request to merge your fork with the upstream repo.
+* The owner of the upstream repo can accept your pull request and merge it into the upstream master branch, then delete your feature branch.
+* Iterate frequently.
+* Avoid merge conflicts by working on separable areas of code, pairing, and rebasing often.
+* In the end, everything will be merged to the master branch in the upstream repo.  This will be your “production” code that everyone will have a copy of in the end.
+
 Evaluation
 ======================
 The evaluation of your model will be based on Root Mean Squared Log Error.
