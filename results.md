@@ -5,11 +5,15 @@ Using the combined dataframe provided by Eric Logue's capstone project, we began
 
 ![Pairplot](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/sns_pairplot.png)
 
+![Correlation Heatmap](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/correlation_heatmap.png)
+
 ![EDA](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/eda.png)
 
 ![Diagnoses by State](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/HIV_diagnoses_by_state.png)
 
 ![Normalized Diagnoses by State](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/HIV_diagnoses_per_100000.png)
+
+![HIV Diagnoses per 100,000 by State](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/HIV_rates_per_100000.png)
 
 ## Modeling
 
@@ -33,4 +37,8 @@ As a baseline we began by calcualting RMSE if we used the mean HIV incidence rat
 ![ElasticNet Coeffs](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/elastic_net_coefs.png)
 
 ### State Modeling
+We broke down the regression models by state with varying success.
 ![Ridge Models by State](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/state_based_ridge_models.png)
+
+## Conclusion
+We created an overall model agnostic of state/county with RMSE of 0.86.
