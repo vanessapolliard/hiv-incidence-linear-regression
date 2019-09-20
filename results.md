@@ -21,7 +21,7 @@ As a baseline we began by calcualting RMSE if we used the mean HIV incidence rat
 
 ![Mean Model](https://github.com/vanessapolliard/regression-case-study/tree/Denver/images/mean_model.png)
 
-### Regression Regularization
+### Regression
 
 ![CV Model Performance](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/model_performance_across_alphas.png)
 ![Ridge Coeffs](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/ridge_coefs.png)
