@@ -9,6 +9,7 @@ from sklearn import datasets
 from utils import XyScaler
 import os
 import matplotlib.pyplot as plt
+import random
 
 
  
@@ -28,7 +29,7 @@ class Modeling(object):
         self.y = df.iloc[:, self.y_index].to_numpy()
 
     def split_data(self):
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.X, self.y)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.X, self.y, random_state = 4)
 
 
     def standardize(self):
@@ -83,7 +84,7 @@ if __name__ == '__main__':
     alphas = np.logspace(-10, -2, n_alphas)
     coefs = []
     for alpha in alphas:
-        modeler = Modeling(df, 6, 8, Ridge(alpha = alpha), 10)
+        modeler = Modeling(df, 6, 8, ElasticNet(alpha = alpha), 10)
         modeler.df_to_x_y()
         modeler.split_data()
         modeler.standardize()
@@ -102,10 +103,10 @@ if __name__ == '__main__':
     ax.set_xlim(ax.get_xlim()[::-1])  # reverse axis
     plt.xlabel('alpha')
     plt.ylabel('weights')
-    plt.title('Ridge coefficients as a function of the regularization', fontsize = 20)
+    plt.title('Elastic Net coefficients as a function of the regularization', fontsize = 20)
     plt.axis('tight')
     plt.legend()
-    fig.savefig('ridge_coefs.png')
+    fig.savefig('elastic_net_coefs.png')
     plt.show()
 
 
@@ -134,15 +135,19 @@ if __name__ == '__main__':
     #     modeler.df_to_x_y()
     #     modeler.split_data()
     #     modeler.standardize()
+    #     modeler.fit()
     #     modeler1.df_to_x_y()
     #     modeler1.split_data()
     #     modeler1.standardize()
+    #     modeler1.fit()
     #     modeler2.df_to_x_y()
     #     modeler2.split_data()
     #     modeler2.standardize()
+    #     modeler2.fit()
     #     modeler3.df_to_x_y()
     #     modeler3.split_data()
     #     modeler3.standardize()
+    #     modeler3.fit()
     #     # modeler.fit()
     #     # error = modeler.predict()
     #     error = modeler.cross_val_score()
@@ -160,7 +165,9 @@ if __name__ == '__main__':
     # ax.plot(alphas, errors1, label = 'Lasso')
     # ax.plot(alphas, errors2, label = 'Elastic Net')
     # ax.plot(alphas, errors3, label = 'Linear Regression')
-    # ax.set_title('CV Model Performance Across Alpha Values', size =)
+    # ax.set_xscale('log')
+    # ax.set_xlim(ax.get_xlim()[::-1])  # reverse axis
+    # ax.set_title('CV Model Performance Across Alpha Values', size = 20)
     # ax.set_xlabel('Alpha Value')
     # ax.set_ylabel('RMSE')
     # fig.legend()
