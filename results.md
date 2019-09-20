@@ -11,6 +11,8 @@ Using the combined dataframe provided by Eric Logue's capstone project, we began
 
 ![Normalized Diagnoses by State](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/HIV_diagnoses_per_100000.png)
 
+![HIV Diagnoses per 100,000 by State](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/HIV_rates_per_100000.png)
+
 ## Modeling
 
 ### Cleaning
