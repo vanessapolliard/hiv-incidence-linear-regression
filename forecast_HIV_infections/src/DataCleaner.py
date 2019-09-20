@@ -32,6 +32,3 @@ class DataCleaner:
         self.df = df
 
         return self.df
-
-if __name__ == "__main__":
-    # Example us
