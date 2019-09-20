@@ -81,7 +81,84 @@ if __name__ == '__main__':
     df = df[df['HIVincidence']<750]
 
     n_alphas = 200
-    alphas = np.logspace(-10, -2, n_alphas)
+    alphas = np.logspace(-5, 2, n_alphas)
+    
+
+    # ax = plt.gca()
+    # ax.plot(alphas, coefs)
+    # ax.set_xscale('log')
+    # ax.set_xlim(ax.get_xlim()[::-1])  # reverse axis
+    # plt.xlabel('alpha')
+    # plt.ylabel('weights')
+    # plt.title('Ridge coefficients as a function of the regularization')
+    # plt.axis('tight')
+    # plt.show()
+
+
+
+
+    errors = []
+    errors1 = []
+    errors2 = []
+    errors3 = []
+    for alpha in alphas:
+        modeler = Modeling(df, 6, 8, Ridge(alpha = alpha), 10)
+        # modeler1 = Modeling(df, 6, 8, Lasso(alpha = alpha), 10)
+        # modeler2 = Modeling(df, 6, 8, ElasticNet(alpha = alpha), 10)
+        # modeler3 = Modeling(df, 6, 8, LinearRegression(), 10)
+        modeler.df_to_x_y()
+        modeler.split_data()
+        modeler.standardize()
+        modeler.fit()
+        # modeler1.df_to_x_y()
+        # modeler1.split_data()
+        # modeler1.standardize()
+        # modeler1.fit()
+        # modeler2.df_to_x_y()
+        # modeler2.split_data()
+        # modeler2.standardize()
+        # modeler2.fit()
+        # modeler3.df_to_x_y()
+        # modeler3.split_data()
+        # modeler3.standardize()
+        # modeler3.fit()
+        # modeler.fit()
+        # error = modeler.predict()
+        error = modeler.cross_val_score()
+        errors.append(error)
+        # error1 = modeler1.cross_val_score()
+        # errors1.append(error1)
+        # error2 = modeler2.cross_val_score()
+        # errors2.append(error2)
+        # error3 = modeler3.cross_val_score()
+        # errors3.append(error3)
+
+    
+    errors_idx = np.argmin(errors)
+    # errors1_idx = np.argmin(errors1)
+    # errors2_idx = np.argmin(errors2)
+    # errors3_idx = np.argmin(errors3)
+
+
+    # fig, ax = plt.subplots(figsize = (20, 10))
+    # ax.plot(alphas, errors, label = 'Ridge')
+    # ax.plot(alphas, errors1, label = 'Lasso')
+    # ax.plot(alphas, errors2, label = 'Elastic Net')
+    # ax.plot(alphas, errors3, label = 'Linear Regression')
+    # ax.axvline(alphas[errors_idx])
+    # ax.axvline(alphas[errors1_idx])
+    # ax.axvline(alphas[errors2_idx])
+    # ax.axvline(alphas[errors3_idx])
+    # ax.set_xscale('log')
+    # # ax.set_xlim(ax.get_xlim()[::-1])  # reverse axis
+    # ax.set_title('CV Model Performance Across Alpha Values', size = 20)
+    # ax.set_xlabel('Alpha Value')
+    # ax.set_ylabel('RMSE')
+    # fig.legend()
+    # fig.savefig('model_performance_across_alphas.png')
+    # plt.show()
+
+
     coefs = []
     for alpha in alphas:
         modeler = Modeling(df, 6, 8, ElasticNet(alpha = alpha), 10)
@@ -99,80 +176,17 @@ if __name__ == '__main__':
     fig, ax = plt.subplots(figsize = (20, 10))
     for i in range(len(coefs_df.columns)):
         ax.plot(alphas, coefs_df.iloc[:, i], label = coefs_df.iloc[:, i].name)
+    ax.axvline(alphas[errors_idx])
     ax.set_xscale('log')
-    ax.set_xlim(ax.get_xlim()[::-1])  # reverse axis
+    # ax.set_xlim(ax.get_xlim()[::-1])  # reverse axis
     plt.xlabel('alpha')
     plt.ylabel('weights')
-    plt.title('Elastic Net coefficients as a function of the regularization', fontsize = 20)
+    plt.title('Ridge coefficients as a function of the regularization', fontsize = 20)
     plt.axis('tight')
     plt.legend()
-    fig.savefig('elastic_net_coefs.png')
+    fig.savefig('ridge_coefs.png')
     plt.show()
 
-
-    # ax = plt.gca()
-    # ax.plot(alphas, coefs)
-    # ax.set_xscale('log')
-    # ax.set_xlim(ax.get_xlim()[::-1])  # reverse axis
-    # plt.xlabel('alpha')
-    # plt.ylabel('weights')
-    # plt.title('Ridge coefficients as a function of the regularization')
-    # plt.axis('tight')
-    # plt.show()
-
-
-
-
-    # errors = []
-    # errors1 = []
-    # errors2 = []
-    # errors3 = []
-    # for alpha in alphas:
-    #     modeler = Modeling(df, 6, 8, Ridge(alpha = alpha), 10)
-    #     modeler1 = Modeling(df, 6, 8, Lasso(alpha = alpha), 10)
-    #     modeler2 = Modeling(df, 6, 8, ElasticNet(alpha = alpha), 10)
-    #     modeler3 = Modeling(df, 6, 8, LinearRegression(), 10)
-    #     modeler.df_to_x_y()
-    #     modeler.split_data()
-    #     modeler.standardize()
-    #     modeler.fit()
-    #     modeler1.df_to_x_y()
-    #     modeler1.split_data()
-    #     modeler1.standardize()
-    #     modeler1.fit()
-    #     modeler2.df_to_x_y()
-    #     modeler2.split_data()
-    #     modeler2.standardize()
-    #     modeler2.fit()
-    #     modeler3.df_to_x_y()
-    #     modeler3.split_data()
-    #     modeler3.standardize()
-    #     modeler3.fit()
-    #     # modeler.fit()
-    #     # error = modeler.predict()
-    #     error = modeler.cross_val_score()
-    #     errors.append(error)
-    #     error1 = modeler1.cross_val_score()
-    #     errors1.append(error1)
-    #     error2 = modeler2.cross_val_score()
-    #     errors2.append(error2)
-    #     error3 = modeler3.cross_val_score()
-    #     errors3.append(error3)
-
-    
-    # fig, ax = plt.subplots(figsize = (20, 10))
-    # ax.plot(alphas, errors, label = 'Ridge')
-    # ax.plot(alphas, errors1, label = 'Lasso')
-    # ax.plot(alphas, errors2, label = 'Elastic Net')
-    # ax.plot(alphas, errors3, label = 'Linear Regression')
-    # ax.set_xscale('log')
-    # ax.set_xlim(ax.get_xlim()[::-1])  # reverse axis
-    # ax.set_title('CV Model Performance Across Alpha Values', size = 20)
-    # ax.set_xlabel('Alpha Value')
-    # ax.set_ylabel('RMSE')
-    # fig.legend()
-    # fig.savefig('model_performance_across_alphas.png')
-    # plt.show()
 
     # feature_names = data1['feature_names']
     # raw_data_x = data[0][:100]
