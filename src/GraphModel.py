@@ -10,7 +10,7 @@ def plot_model(y_actual, yhat, fig_title):
     fig_title - string of title
     
     '''
-    y_actual.sort_values()
+    y_actual.sort()
     fig, ax = plt.subplots(figsize=(12,7))
     xs = np.linspace(0,len(y_actual),len(y_actual))
     # Plot Actual values
