@@ -5,6 +5,8 @@ Using the combined dataframe provided by Eric Logue's capstone project, we began
 
 ![Pairplot](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/sns_pairplot.png)
 
+![Correlation Heatmap](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/correlation_heatmap.png)
+
 ![EDA](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/eda.png)
 
 ![Diagnoses by State](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/HIV_diagnoses_by_state.png)
