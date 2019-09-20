@@ -35,4 +35,8 @@ As a baseline we began by calcualting RMSE if we used the mean HIV incidence rat
 ![ElasticNet Coeffs](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/elastic_net_coefs.png)
 
 ### State Modeling
+We broke down the regression models by state with varying success.
 ![Ridge Models by State](https://github.com/vanessapolliard/regression-case-study/blob/Denver/images/state_based_ridge_models.png)
+
+## Conclusion
+We created an overall model agnostic of state/county with RMSE of 0.86.
