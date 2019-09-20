@@ -1,0 +1,3 @@
+1. drop null rows
+2. drop HIVincidence outlier 
+3. standardize (use XYscaler) (within cross-validation)
